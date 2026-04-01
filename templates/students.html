@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="section-header">
+  <h1>Register Student</h1>
+  <span class="section-pill">Face Enrollment</span>
+</div>
+
+<div class="register-wrap">
+  <input id="name" type="text" placeholder="Enter student name…" autocomplete="off">
+  <button onclick="register()">📸 Register Face</button>
+</div>
+
+<div class="camera-card glass">
+  <video id="video" autoplay playsinline></video>
+</div>
+
+<script src="/static/script.js"></script>
+
+{% endblock %}
