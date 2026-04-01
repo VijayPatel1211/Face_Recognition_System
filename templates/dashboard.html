@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="section-header">
+  <h1>Dashboard</h1>
+  <span class="section-pill">Live Overview</span>
+</div>
+
+<div class="cards">
+
+  <div class="card">
+    <span class="card-icon">🎓</span>
+    <h2>Total Students</h2>
+    <p>{{ students }}</p>
+  </div>
+
+  <div class="card">
+    <span class="card-icon">✅</span>
+    <h2>Total Attendance</h2>
+    <p>{{ attendance }}</p>
+  </div>
+
+  <div class="card">
+    <span class="card-icon">📅</span>
+    <h2>Today</h2>
+    <p id="today-date" style="font-size:22px; padding-top:6px;">—</p>
+  </div>
+
+</div>
+
+<script>
+  const d = new Date();
+  document.getElementById('today-date').textContent =
+    d.toLocaleDateString('en-IN', { day:'numeric', month:'short', year:'numeric' });
+</script>
+
+{% endblock %}
