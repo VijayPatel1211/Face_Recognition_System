@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="section-header">
+  <h1>Attendance Records</h1>
+  <span class="section-pill">{{ rows|length }} entries</span>
+</div>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Student Name</th>
+        <th>Date & Time</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in rows %}
+      <tr>
+        <td style="color: var(--text-muted); font-size:13px;">{{ loop.index }}</td>
+        <td style="font-weight:600;">{{ row[0] }}</td>
+        <td>{{ row[1] }}</td>
+        <td><span class="badge">✓ Present</span></td>
+      </tr>
+      {% endfor %}
+
+      {% if rows|length == 0 %}
+      <tr>
+        <td colspan="4" style="text-align:center; padding:40px; color: var(--text-muted);">
+          No attendance records yet.
+        </td>
+      </tr>
+      {% endif %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}
