@@ -1,1 +1,19 @@
-hi
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="section-header">
+  <h1>Live Face Recognition</h1>
+  <span class="section-pill">🟢 Active</span>
+</div>
+
+<div class="camera-card glass">
+  <video id="video" autoplay playsinline></video>
+  <canvas id="canvas"></canvas>
+</div>
+
+<p id="status">Initializing camera…</p>
+
+<script src="/static/camera.js"></script>
+
+{% endblock %}
