@@ -1,1 +1,53 @@
-hi
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Attendance</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+  <!-- Floating orbs for depth -->
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+
+  <nav class="navbar">
+    <div class="logo">
+      <div class="logo-icon">🤖</div>
+      AI Attendance
+    </div>
+
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+
+    <div class="navlinks" id="navlinks">
+      <a href="/">📷 Camera</a>
+      <a href="/dashboard">📊 Dashboard</a>
+      <a href="/students">🎓 Students</a>
+      <a href="/attendance_page">📋 Attendance</a>
+      <a href="/developer">👤 Developer</a>
+    </div>
+  </nav>
+
+  <div class="page">
+    {% block content %}{% endblock %}
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navlinks').classList.toggle('open');
+    }
+
+    // Highlight active nav link
+    const links = document.querySelectorAll('.navlinks a');
+    links.forEach(link => {
+      if (link.getAttribute('href') === window.location.pathname) {
+        link.classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html>
